@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import com.semmle.js.extractor.ExtractorConfig.HTMLHandling;
+import com.semmle.extractor.html.HtmlExtractor;
 import com.semmle.js.extractor.ExtractorConfig.Platform;
 import com.semmle.js.extractor.ExtractorConfig.SourceType;
 import com.semmle.js.extractor.FileExtractor.FileType;
@@ -486,8 +486,8 @@ public class Main {
             .withHtmlHandling(
                 ap.getEnum(
                     P_HTML,
-                    HTMLHandling.class,
-                    ap.has(P_EXPERIMENTAL) ? HTMLHandling.ALL : HTMLHandling.ELEMENTS))
+                    HtmlExtractor.Config.class,
+                    ap.has(P_EXPERIMENTAL) ? HtmlExtractor.Config.ALL : HtmlExtractor.Config.ELEMENTS))
             .withFileType(getFileType(ap))
             .withSourceType(ap.getEnum(P_SOURCE_TYPE, SourceType.class, SourceType.AUTO))
             .withExtractLines(ap.has(P_EXTRACT_PROGRAM_TEXT))

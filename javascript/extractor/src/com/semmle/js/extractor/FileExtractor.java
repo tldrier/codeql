@@ -107,7 +107,7 @@ public class FileExtractor {
     HTML(".htm", ".html", ".xhtm", ".xhtml", ".vue") {
       @Override
       public IExtractor mkExtractor(ExtractorConfig config, ExtractorState state) {
-        return new HTMLExtractor(config, state);
+        return new JavaScriptHTMLExtractor(config, state);
       }
 
       @Override
